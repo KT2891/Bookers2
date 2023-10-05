@@ -1,1 +1,27 @@
-<h1>Showpage</h1>
+<div class="container">
+  <%= render partial: "layouts/errors", locals: {item: @book} %>
+  <div class="row">
+    <div class="col-3">
+      <%= render partial: "layouts/sidebar", locals: { user: @book.user , book: @book} %>
+    </div>
+
+<div class="col-8 offset-1">
+  <h2>Book detail</h2>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to user_path(@book.user) do %>
+            <%= image_tag @book.user.get_profile_image(80, 80) %> <br>
+            <%= @book.user.name %>
+          <% end %>
+        </td>
+        <td><%= link_to @book.title, book_path(@book) %></td>
+        <td><%= @book.body  %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<% if item.errors.any? %>
+  <h3><%= item.errors.count %> errors prohibited this obj from being saved:</h3>
+  <ul>
+    <% item.errors.full_messages.each do |error_message| %>
+      <li><%= error_message %></li>
+    <% end %>
+  </ul>
+<% end %>

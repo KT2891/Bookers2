@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
+
   def index
+    @books = Book.all
+    @book = Book.new
+    @user = current_user
   end
 
   def create
@@ -9,13 +13,13 @@ class BooksController < ApplicationController
       flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book)
     else
-      flash[:notice] = "だめー"
       @books = Book.all
       render :index
     end
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def edit
@@ -23,8 +27,9 @@ class BooksController < ApplicationController
 
 # ストロングパラメータ設定
   private
+
   def book_params
-    params.require(:book).permit(:title, :opinion)
+    params.require(:book).permit(:title, :body)
   end
 
 end

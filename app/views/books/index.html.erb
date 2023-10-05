@@ -1,2 +1,13 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div class="container">
+  <%= render partial: "layouts/errors", locals: {item: @book} %>
+  <div class="row">
+    <div class="col-3">
+      <%= render partial: "layouts/sidebar", locals: { user: @user, book: @book} %>
+    </div>
+
+    <div class="col-8 offset-1">
+      <%= render partial: "books/books_index", locals: { user: @user, books: @books} %>
+    </div>
+
+  </div>
+</div>
