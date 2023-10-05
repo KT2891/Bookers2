@@ -10,10 +10,10 @@ class UsersController < ApplicationController
 
   def edit
   end
-  
-  
-  
+
+
+
   private
-  
-  
+
+
 end

@@ -1,22 +1,27 @@
-<dev class="container px-5 px-sm-0">
+<div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-3">
-      <h2>User info</h2>
-      <%= image_tag @user.get_profile_image(100, 100) %>
+    <!--サイドバーパーシャルを参照　インスタンス変数をローカル変数に変換-->
+    <%= render partial: "users/sidebar", locals: { user: @user, book: @book} %>
+
+    <div class="col-8 offset-1">
+      <h2>Books</h2>
       <table class="table">
+        <thead>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+          <th></th>
+        </thead>
         <tbody>
-          <tr>
-            <th>name</th>
-            <th><%= @user.name %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-          </tr>
+          <% @books.each do |user_book| %>
+            <tr>
+              <td><%= image_tag @user.get_profile_image(80, 80) %></td>
+              <td><%= link_to user_book.title, book_path(user_book) %></td>
+              <td><%= user_book.opinion %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
-    <div class="col-8 offset-1">
-
-    </div>
   </div>
-</dev>
+</div>
