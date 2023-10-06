@@ -7,15 +7,15 @@
     <th></th>
   </thead>
   <tbody>
-    <% books.each do |user_book| %>
+    <% books.each do |book| %>
       <tr>
         <td>
-          <%= link_to user_path(user_book.user) do %>
-            <%= image_tag user.get_profile_image(80, 80) %>
+          <%= link_to user_path(book.user) do %>
+            <%= image_tag book.user.get_profile_image(80, 80) %>
           <% end %>
           </td>
-        <td><%= link_to user_book.title, book_path(user_book) %></td>
-        <td><%= user_book.body %></td>
+        <td><%= link_to book.title, book_path(book) %></td>
+        <td><%= book.body %></td>
       </tr>
     <% end %>
   </tbody>

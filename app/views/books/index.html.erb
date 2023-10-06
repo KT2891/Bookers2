@@ -1,11 +1,11 @@
 <div class="container">
   <%= render partial: "layouts/errors", locals: {item: @book} %>
   <div class="row">
-    <div class="col-3">
+    <div class="col-md-3">
       <%= render partial: "layouts/sidebar", locals: { user: @user, book: @book} %>
     </div>
 
-    <div class="col-8 offset-1">
+    <div class="col-md-8 offset-md-1">
       <%= render partial: "books/books_index", locals: { user: @user, books: @books} %>
     </div>
 
